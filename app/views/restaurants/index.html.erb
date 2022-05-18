@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-b-black-solid border-bottom-2-dark">
+  <H1 id="title">Restaurants of your country</H1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%= link_to new_restaurant_path, class:"btn btn-light" do %>
+    <i class="fa-solid fa-square-plus"></i>
+    <% end %>
+  </button>
+</nav>
+<br>
+<ul class="list-group list-group-flush font-size-50">
+  <% @restaurants.each do |restaurant| %>
+   <li class="list-group-item d-flex justify-content-center font-weight-bold list-group-item-action list-light"><%= link_to restaurant.name, restaurant_path(restaurant)%></li>
+  <% end %>
+</ul>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-b-black-solid border-bottom-2-dark">
+  <H1 id="title"><%=@restaurant.name%></H1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%= link_to new_restaurant_path, class:"btn btn-light" do %>
+    <i class="fa-solid fa-square-plus"></i>
+    <% end %>
+  </button>
+</nav>
+<div>
+  <h3>Adress</h3>
+  <p> <%=@restaurant.address%></p>
+  <h3>Phone number</h3>
+  <p> <%= @restaurant.phone_number %></p>
+  <h3>Reviews</h3>
+</div>
+
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to edit_restaurant_path(@restaurant),
+            method: :edit,
+            data: { confirm: "Are you sure?" },
+            class:"btn btn-light" do%>
+<i class="fa-solid fa-pen">Edit</i>
+<% end %>
+
+<%# <%= link_to new_restaurant_review_path(@restaurant),
+            method: new,
+            data: { confirm: "Are you sure?" },
+            class:"btn btn-light" do%>
+<i class="fa-solid fa-pen">New review</i>
+<% end %> %>
+
+<%= link_to 'Back to all', restaurants_path %> |
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>

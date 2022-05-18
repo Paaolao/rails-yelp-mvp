@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-b-black-solid border-bottom-2-dark">
+  <H1 id="title" class="text-uppercase">New restaurant</H1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="restaurants_path" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%= link_to restaurants_path, class:"btn btn-light" do %>
+    <i class="fa-solid fa-house"></i>
+    <% end %>
+  </button>
+</nav>
+<form class="container">
+  <%= form_for(@restaurant) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+    <%= f.submit %>
+  <% end %>
+</form>
